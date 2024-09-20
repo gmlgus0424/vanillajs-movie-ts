@@ -1,14 +1,69 @@
-import { Store } from '../core/heropy'
+import { DetailedPeerCertificate } from 'tls'
+import { Store } from '../core/heropy' 
+interface SimpleMovie {
+  Title: string,
+  Year: string,
+  imdbID: string,
+  Type: string,
+  Poster : string
 
-const store = new Store({
+
+}
+interface Root{
+  Title: string
+  Year: string
+  Rated: string 
+  Released: string
+  Runtime: string
+  Genre: string
+  Director: string
+  Writer: string
+  Actors: string
+  Plot : string
+  Language: string
+  Country: string
+  Awards: string
+  Poster: string
+  Ratings: Rating[]
+  Metascore: string
+  imdbRating: string
+  imdbVotes: string
+  imdbID: string
+  Type: string
+  DVD: string
+  BoxOffice: string
+  Production: string
+  Website: string
+  Response: string
+    
+
+  
+}
+interface Rating{
+  Source: string
+  Value: string
+}
+interface State {
+  searchText: string,
+  page: number,
+  pageMax: number,
+  movies: SimpleMovie[],
+  movie: Root,
+  loading: boolean,
+  message: string
+
+
+}
+
+const store = new Store<State>({
   searchText: '',
   page: 1,
   pageMax: 1,
   movies: [],
-  movie: {},
+  movie: {} as Root,
   loading: false,
   message: 'Search for the movie title!'
-})
+})   
 
 export default store
 export const searchMovies = async page => {
