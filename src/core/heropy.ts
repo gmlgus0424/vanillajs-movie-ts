@@ -85,7 +85,7 @@ export function createRouter(routes:Routes) {
 }
 
 interface StoreObservers{
-  [key:string]:
+  [key:string]: SubscribeCallback []
 }
 interface SubscribeCallback{
   (arg:unknown):void
