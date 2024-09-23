@@ -1,12 +1,6 @@
 import { Component } from '../core/heropy'
+import aboutStore from '../store/about'
 
-interface State{
-  photo: string,
-  name: string,
-  email: string,
-  blog: string,
-  github: string
-}
 
 export default class About extends Component {
   render() {
